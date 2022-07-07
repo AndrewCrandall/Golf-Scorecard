@@ -1,3 +1,5 @@
+
+
 #pragma once
 
 #include "user.h"
@@ -24,6 +26,7 @@ namespace capstone7 {
 			//
 			//TODO: Add the constructor code here
 			//
+			panel1->Hide();
 		}
 
 	protected:
@@ -131,6 +134,21 @@ namespace capstone7 {
 	private: System::Windows::Forms::TextBox^ txtBoxFullRound;
 
 	private: System::Windows::Forms::Label^ label21;
+private: System::Windows::Forms::Panel^ panel1;
+private: System::Windows::Forms::TextBox^ pnlFrontScore;
+private: System::Windows::Forms::TextBox^ pnlTotalScore;
+
+
+private: System::Windows::Forms::TextBox^ pnlBackScore;
+
+private: System::Windows::Forms::Label^ label25;
+private: System::Windows::Forms::Label^ label24;
+private: System::Windows::Forms::Label^ label23;
+private: System::Windows::Forms::TextBox^ txtPnlSavedRound;
+
+private: System::Windows::Forms::Label^ label22;
+private: System::Windows::Forms::Button^ pnlBtnCancel;
+private: System::Windows::Forms::Button^ pnlCancelSave;
 
 
 
@@ -249,8 +267,20 @@ namespace capstone7 {
 			this->txtBoxBackTotal = (gcnew System::Windows::Forms::TextBox());
 			this->txtBoxFullRound = (gcnew System::Windows::Forms::TextBox());
 			this->label21 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pnlBtnCancel = (gcnew System::Windows::Forms::Button());
+			this->pnlCancelSave = (gcnew System::Windows::Forms::Button());
+			this->label25 = (gcnew System::Windows::Forms::Label());
+			this->label24 = (gcnew System::Windows::Forms::Label());
+			this->label23 = (gcnew System::Windows::Forms::Label());
+			this->txtPnlSavedRound = (gcnew System::Windows::Forms::TextBox());
+			this->label22 = (gcnew System::Windows::Forms::Label());
+			this->pnlFrontScore = (gcnew System::Windows::Forms::TextBox());
+			this->pnlTotalScore = (gcnew System::Windows::Forms::TextBox());
+			this->pnlBackScore = (gcnew System::Windows::Forms::TextBox());
 			this->tbl1PlayerOne->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tbl1PlayerOne
@@ -279,7 +309,7 @@ namespace capstone7 {
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				55)));
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				154)));
+				175)));
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				20)));
 			this->tbl1PlayerOne->Controls->Add(this->txtBoxHole9, 8, 0);
@@ -758,6 +788,7 @@ namespace capstone7 {
 			this->button2->TabIndex = 11;
 			this->button2->Text = L"Clear";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &onePlayer::button2_Click_1);
 			// 
 			// button3
 			// 
@@ -767,6 +798,7 @@ namespace capstone7 {
 			this->button3->TabIndex = 12;
 			this->button3->Text = L"Return";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &onePlayer::button3_Click_1);
 			// 
 			// label11
 			// 
@@ -894,7 +926,7 @@ namespace capstone7 {
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				55)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				154)));
+				175)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				20)));
 			this->tableLayoutPanel1->Controls->Add(this->txtBoxHole18, 8, 0);
@@ -1276,12 +1308,134 @@ namespace capstone7 {
 			this->label21->TabIndex = 25;
 			this->label21->Text = L"Total";
 			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->pnlBtnCancel);
+			this->panel1->Controls->Add(this->pnlCancelSave);
+			this->panel1->Controls->Add(this->label25);
+			this->panel1->Controls->Add(this->label24);
+			this->panel1->Controls->Add(this->label23);
+			this->panel1->Controls->Add(this->txtPnlSavedRound);
+			this->panel1->Controls->Add(this->label22);
+			this->panel1->Controls->Add(this->pnlFrontScore);
+			this->panel1->Controls->Add(this->pnlTotalScore);
+			this->panel1->Controls->Add(this->pnlBackScore);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(776, 389);
+			this->panel1->TabIndex = 26;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &onePlayer::panel1_Paint);
+			// 
+			// pnlBtnCancel
+			// 
+			this->pnlBtnCancel->Location = System::Drawing::Point(431, 300);
+			this->pnlBtnCancel->Name = L"pnlBtnCancel";
+			this->pnlBtnCancel->Size = System::Drawing::Size(75, 23);
+			this->pnlBtnCancel->TabIndex = 9;
+			this->pnlBtnCancel->Text = L"Cancel";
+			this->pnlBtnCancel->UseVisualStyleBackColor = true;
+			this->pnlBtnCancel->Click += gcnew System::EventHandler(this, &onePlayer::pnlBtnCancel_Click);
+			// 
+			// pnlCancelSave
+			// 
+			this->pnlCancelSave->Location = System::Drawing::Point(307, 300);
+			this->pnlCancelSave->Name = L"pnlCancelSave";
+			this->pnlCancelSave->Size = System::Drawing::Size(75, 23);
+			this->pnlCancelSave->TabIndex = 8;
+			this->pnlCancelSave->Text = L"Save";
+			this->pnlCancelSave->UseVisualStyleBackColor = true;
+			this->pnlCancelSave->Click += gcnew System::EventHandler(this, &onePlayer::pnlCancelSave_Click);
+			// 
+			// label25
+			// 
+			this->label25->AutoSize = true;
+			this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label25->Location = System::Drawing::Point(292, 235);
+			this->label25->Name = L"label25";
+			this->label25->Size = System::Drawing::Size(59, 26);
+			this->label25->TabIndex = 7;
+			this->label25->Text = L"Total";
+			this->label25->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label24
+			// 
+			this->label24->AutoSize = true;
+			this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label24->Location = System::Drawing::Point(257, 176);
+			this->label24->Name = L"label24";
+			this->label24->Size = System::Drawing::Size(124, 26);
+			this->label24->TabIndex = 6;
+			this->label24->Text = L"Back Score";
+			this->label24->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label23
+			// 
+			this->label23->AutoSize = true;
+			this->label23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label23->Location = System::Drawing::Point(257, 117);
+			this->label23->Name = L"label23";
+			this->label23->Size = System::Drawing::Size(125, 26);
+			this->label23->TabIndex = 5;
+			this->label23->Text = L"Front Score";
+			this->label23->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// txtPnlSavedRound
+			// 
+			this->txtPnlSavedRound->Location = System::Drawing::Point(324, 55);
+			this->txtPnlSavedRound->Multiline = true;
+			this->txtPnlSavedRound->Name = L"txtPnlSavedRound";
+			this->txtPnlSavedRound->Size = System::Drawing::Size(168, 27);
+			this->txtPnlSavedRound->TabIndex = 4;
+			// 
+			// label22
+			// 
+			this->label22->AutoSize = true;
+			this->label22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label22->Location = System::Drawing::Point(307, 12);
+			this->label22->Name = L"label22";
+			this->label22->Size = System::Drawing::Size(194, 26);
+			this->label22->TabIndex = 3;
+			this->label22->Text = L"Name Your Round";
+			this->label22->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// pnlFrontScore
+			// 
+			this->pnlFrontScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlFrontScore->Location = System::Drawing::Point(427, 117);
+			this->pnlFrontScore->Multiline = true;
+			this->pnlFrontScore->Name = L"pnlFrontScore";
+			this->pnlFrontScore->ReadOnly = true;
+			this->pnlFrontScore->Size = System::Drawing::Size(105, 28);
+			this->pnlFrontScore->TabIndex = 2;
+			// 
+			// pnlTotalScore
+			// 
+			this->pnlTotalScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlTotalScore->Location = System::Drawing::Point(427, 235);
+			this->pnlTotalScore->Multiline = true;
+			this->pnlTotalScore->Name = L"pnlTotalScore";
+			this->pnlTotalScore->ReadOnly = true;
+			this->pnlTotalScore->Size = System::Drawing::Size(105, 28);
+			this->pnlTotalScore->TabIndex = 1;
+			// 
+			// pnlBackScore
+			// 
+			this->pnlBackScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlBackScore->Location = System::Drawing::Point(427, 174);
+			this->pnlBackScore->Multiline = true;
+			this->pnlBackScore->Name = L"pnlBackScore";
+			this->pnlBackScore->ReadOnly = true;
+			this->pnlBackScore->Size = System::Drawing::Size(105, 28);
+			this->pnlBackScore->TabIndex = 0;
+			// 
 			// onePlayer
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(776, 389);
 			this->ControlBox = false;
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label21);
 			this->Controls->Add(this->txtBoxFullRound);
 			this->Controls->Add(this->label11);
@@ -1317,6 +1471,8 @@ namespace capstone7 {
 			this->tbl1PlayerOne->PerformLayout();
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1327,18 +1483,22 @@ namespace capstone7 {
 	private: System::Void onePlayer_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
+
 	//Private Data Members
-	private: User user;
+	private:User user;
 	private: bool saveRound = false;
+	private:bool returnToSetUp = false;
+	private:int score;
+	private: String^ Round;
+
+
 
 	//Public Functions
-
-	public: int getUserScore();
-	public: bool getSavedRound();
-
-
-
-
+	public:int getUserScore();
+	public:bool getSavedRound();
+	public:bool setupDecision();
+	public:String^ savedRoundName();
+	
 
 		  //FUNCTION TO ADD TEXTBOX
 
@@ -1370,6 +1530,7 @@ namespace capstone7 {
 				  + int::Parse(txtBoxHole9->Text);
 
 			  txtBoxFrontTot->Text = System::Convert::ToString(total);
+			  pnlFrontScore->Text = System::Convert::ToString(total);
 
 			  fullRound();
 		  }
@@ -1383,7 +1544,7 @@ namespace capstone7 {
 				  + int::Parse(txtBoxHole17->Text);
 
 			  txtBoxBackTotal->Text = System::Convert::ToString(total);
-
+			  pnlBackScore->Text = System::Convert::ToString(total);
 			  fullRound();
 
 		  }
@@ -1406,6 +1567,7 @@ namespace capstone7 {
 				  + int::Parse(txtBoxHole17->Text);
 
 			  txtBoxFullRound->Text = System::Convert::ToString(total);
+			  pnlTotalScore->Text = System::Convert::ToString(total);
 
 		  }
 
@@ -1568,15 +1730,69 @@ namespace capstone7 {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-
 		//user->setScore(int::Parse(txtBoxFullRound->Text));
 		//user->setScore(int::Parse(txtBoxFullRound->Text));
 
 		user.setScore(int::Parse(txtBoxFullRound->Text));
 
-		saveRound = true;
-		this->Close();
+		//saveRound = true;
+
+		panel1->Show();
 
 	}
-	};
+
+
+
+	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) { //User resets onePlayerForm
+		//Every text box is set to 0
+		txtBoxFrontTot->Text = "0";
+		txtBoxBackTotal->Text = "0";
+		txtBoxFullRound->Text = "0";
+		txtBoxHole1->Text = "0";
+		txtBoxHole2->Text = "0";
+		txtBoxHole3->Text = "0";
+		txtBoxHole4->Text = "0";
+		txtBoxHole5->Text = "0";
+		txtBoxHole6->Text = "0";
+		txtBoxHole7->Text = "0";
+		txtBoxHole8->Text = "0";
+		txtBoxHole9->Text = "0";
+		txtBoxHole10->Text = "0";
+		txtBoxHole11->Text = "0";
+		txtBoxHole1->Text = "0";
+		txtBoxHole12->Text = "0";
+		txtBoxHole13->Text = "0";
+		txtBoxHole14->Text = "0";
+		txtBoxHole15->Text = "0";
+		txtBoxHole16->Text = "0";
+		txtBoxHole17->Text = "0";
+		txtBoxHole18->Text = "0";
+
+
+
+	}
+private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) { //User wants to return to setupForm
+	returnToSetUp = true;//set to true
+	this->Close(); //closes onePlayerForm
 }
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void pnlBtnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	panel1->Hide(); //User does not want to save the round, hits "Cancel" within panel
+}
+private: System::Void pnlCancelSave_Click(System::Object^ sender, System::EventArgs^ e) {
+	saveRound = true; //user wants to save round to database
+	Round = txtPnlSavedRound->Text; //name of the save dround
+	this->Close(); //closes onePlayer form
+
+}
+};
+}
+
+
+
+
+
+
+
+

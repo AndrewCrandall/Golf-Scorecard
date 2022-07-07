@@ -41,7 +41,8 @@ namespace capstone7 {
 
 	protected:
 	private: System::Windows::Forms::Button^ btnOnePlyr;
-	private: System::Windows::Forms::Button^ btnTwoPlyr;
+	private: System::Windows::Forms::Button^ btnLoad;
+
 
 
 	private: System::Windows::Forms::Button^ btnHelp;
@@ -70,7 +71,7 @@ namespace capstone7 {
 		void InitializeComponent(void)
 		{
 			this->btnOnePlyr = (gcnew System::Windows::Forms::Button());
-			this->btnTwoPlyr = (gcnew System::Windows::Forms::Button());
+			this->btnLoad = (gcnew System::Windows::Forms::Button());
 			this->btnHelp = (gcnew System::Windows::Forms::Button());
 			this->pnlHelp = (gcnew System::Windows::Forms::Panel());
 			this->pnlBtnOk = (gcnew System::Windows::Forms::Button());
@@ -90,22 +91,22 @@ namespace capstone7 {
 			this->btnOnePlyr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
 			this->btnOnePlyr->Location = System::Drawing::Point(109, 119);
 			this->btnOnePlyr->Name = L"btnOnePlyr";
-			this->btnOnePlyr->Size = System::Drawing::Size(159, 54);
+			this->btnOnePlyr->Size = System::Drawing::Size(159, 69);
 			this->btnOnePlyr->TabIndex = 4;
-			this->btnOnePlyr->Text = L"One Player";
+			this->btnOnePlyr->Text = L"Start New Round";
 			this->btnOnePlyr->UseVisualStyleBackColor = true;
 			this->btnOnePlyr->Click += gcnew System::EventHandler(this, &setupForm::btnOnePlyr_Click);
 			// 
-			// btnTwoPlyr
+			// btnLoad
 			// 
-			this->btnTwoPlyr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
-			this->btnTwoPlyr->Location = System::Drawing::Point(109, 194);
-			this->btnTwoPlyr->Name = L"btnTwoPlyr";
-			this->btnTwoPlyr->Size = System::Drawing::Size(159, 54);
-			this->btnTwoPlyr->TabIndex = 5;
-			this->btnTwoPlyr->Text = L"Two Players";
-			this->btnTwoPlyr->UseVisualStyleBackColor = true;
-			this->btnTwoPlyr->Click += gcnew System::EventHandler(this, &setupForm::btnTwoPlyr_Click);
+			this->btnLoad->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
+			this->btnLoad->Location = System::Drawing::Point(109, 194);
+			this->btnLoad->Name = L"btnLoad";
+			this->btnLoad->Size = System::Drawing::Size(159, 54);
+			this->btnLoad->TabIndex = 5;
+			this->btnLoad->Text = L"Load Round";
+			this->btnLoad->UseVisualStyleBackColor = true;
+			this->btnLoad->Click += gcnew System::EventHandler(this, &setupForm::btnTwoPlyr_Click);
 			// 
 			// btnHelp
 			// 
@@ -121,7 +122,7 @@ namespace capstone7 {
 			// 
 			this->pnlHelp->Controls->Add(this->pnlBtnOk);
 			this->pnlHelp->Controls->Add(this->textBox2);
-			this->pnlHelp->Location = System::Drawing::Point(71, 105);
+			this->pnlHelp->Location = System::Drawing::Point(83, 106);
 			this->pnlHelp->MaximumSize = System::Drawing::Size(230, 173);
 			this->pnlHelp->MinimumSize = System::Drawing::Size(230, 173);
 			this->pnlHelp->Name = L"pnlHelp";
@@ -181,9 +182,10 @@ namespace capstone7 {
 			this->pnlLogOut->Controls->Add(this->pnlBtnReturn);
 			this->pnlLogOut->Controls->Add(this->pnlBtnExit);
 			this->pnlLogOut->Controls->Add(this->textBox1);
-			this->pnlLogOut->Location = System::Drawing::Point(3, 46);
+			this->pnlLogOut->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pnlLogOut->Location = System::Drawing::Point(0, 0);
 			this->pnlLogOut->Name = L"pnlLogOut";
-			this->pnlLogOut->Size = System::Drawing::Size(399, 366);
+			this->pnlLogOut->Size = System::Drawing::Size(401, 441);
 			this->pnlLogOut->TabIndex = 2;
 			this->pnlLogOut->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &setupForm::pnlLogOut_Paint);
 			// 
@@ -229,7 +231,7 @@ namespace capstone7 {
 			this->Controls->Add(this->btnLogOut);
 			this->Controls->Add(this->pnlHelp);
 			this->Controls->Add(this->btnHelp);
-			this->Controls->Add(this->btnTwoPlyr);
+			this->Controls->Add(this->btnLoad);
 			this->Controls->Add(this->btnOnePlyr);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->MaximumSize = System::Drawing::Size(500, 500);
@@ -248,23 +250,20 @@ namespace capstone7 {
 		}
 #pragma endregion
 
-	//Private Data Members
+	//Private
 	private: bool onePlayerSetting = false;
-	private: bool twoPlayerSetting = false;
+	private: bool loadRoundSetting = false;
+	private: bool logoutApplication = false;
 
-	//Public Functions
+	//Public
 	public: bool getOnePlayer();
-	public: bool getTwoPlayer();
-
+	public: bool getLoadRound();
+	public: bool getLogout();
 
 	private: System::Void setupForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnOnePlyr_Click(System::Object^ sender, System::EventArgs^ e) {
 		onePlayerSetting = true; //User choose one Player
-		this->Close();
-	}
-	private: System::Void btnTwoPlyr_Click(System::Object^ sender, System::EventArgs^ e) { //Open two player form
-		twoPlayerSetting = true;
 		this->Close();
 	}
 	private: System::Void btnHelp_Click(System::Object^ sender, System::EventArgs^ e) { //Open Panel
@@ -277,12 +276,17 @@ namespace capstone7 {
 		pnlHelp->Hide(); //Hides Panel
 	}
 	private: System::Void pnlBtnExit_Click(System::Object^ sender, System::EventArgs^ e) {
-		Application::Exit(); //Closes application
+		logoutApplication = true;
+		this->Close();
 	}
 	private: System::Void pnlBtnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlLogOut->Hide(); //Brings user back to choose player interface
 	}
 	private: System::Void pnlLogOut_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	};
+	private: System::Void btnTwoPlyr_Click(System::Object^ sender, System::EventArgs^ e) {
+		loadRoundSetting = true;
+		this->Close();
+	}
+};
 }

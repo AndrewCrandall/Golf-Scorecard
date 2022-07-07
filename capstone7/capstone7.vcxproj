@@ -122,6 +122,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="loadForm.cpp" />
     <ClCompile Include="loginForm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="onePlayer.cpp" />
@@ -130,6 +131,9 @@
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="loadForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="loginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -145,6 +149,9 @@
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="loadForm.resx">
+      <DependentUpon>loadForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.h</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +164,9 @@
     <EmbeddedResource Include="setupForm.resx">
       <DependentUpon>setupForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

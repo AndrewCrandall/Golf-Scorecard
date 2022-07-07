@@ -161,7 +161,7 @@ namespace capstone7 {
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"loginForm";
 			this->Text = L"loginForm";
-			//this->Load += gcnew System::EventHandler(this, &loginForm::loginForm_Load);
+			this->Load += gcnew System::EventHandler(this, &loginForm::loginForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -250,5 +250,7 @@ namespace capstone7 {
 
 
 
+private: System::Void loginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

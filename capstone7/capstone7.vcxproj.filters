@@ -27,10 +27,13 @@
     <ClCompile Include="registerForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="onePlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="setupForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="onePlayer.cpp">
+    <ClCompile Include="loadForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,11 +47,19 @@
     <ClInclude Include="registerForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="setupForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="onePlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="setupForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="loadForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

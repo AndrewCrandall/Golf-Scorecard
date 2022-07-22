@@ -1,3 +1,9 @@
+/*
+Andrew Crandall
+7/22/2022
+Title: One Player Form
+Summary: Form for user to create and save current round of golf
+*/
 
 
 #pragma once
@@ -23,10 +29,7 @@ namespace capstone7 {
 		onePlayer(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-			panel1->Hide();
+			panel1->Hide(); //hides saveRound panel
 		}
 
 	protected:
@@ -288,6 +291,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tbl1PlayerOne->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->tbl1PlayerOne->BackColor = System::Drawing::Color::ForestGreen;
 			this->tbl1PlayerOne->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
 			this->tbl1PlayerOne->ColumnCount = 10;
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
@@ -309,7 +313,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				55)));
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				175)));
+				178)));
 			this->tbl1PlayerOne->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				20)));
 			this->tbl1PlayerOne->Controls->Add(this->txtBoxHole9, 8, 0);
@@ -324,7 +328,6 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tbl1PlayerOne->Controls->Add(this->btnSub7, 6, 2);
 			this->tbl1PlayerOne->Controls->Add(this->btnSub1, 0, 2);
 			this->tbl1PlayerOne->Controls->Add(this->btnAdd8, 7, 1);
-			this->tbl1PlayerOne->Controls->Add(this->txtBoxHole1, 0, 0);
 			this->tbl1PlayerOne->Controls->Add(this->btnAdd1, 0, 1);
 			this->tbl1PlayerOne->Controls->Add(this->btnAdd2, 1, 1);
 			this->tbl1PlayerOne->Controls->Add(this->btnSub2, 1, 2);
@@ -340,8 +343,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tbl1PlayerOne->Controls->Add(this->btnAdd9, 8, 1);
 			this->tbl1PlayerOne->Controls->Add(this->btnSub0, 8, 2);
 			this->tbl1PlayerOne->Controls->Add(this->txtBoxFrontTot, 9, 0);
+			this->tbl1PlayerOne->Controls->Add(this->txtBoxHole1, 0, 0);
+			this->tbl1PlayerOne->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tbl1PlayerOne->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
-			this->tbl1PlayerOne->Location = System::Drawing::Point(158, 35);
+			this->tbl1PlayerOne->Location = System::Drawing::Point(158, 65);
 			this->tbl1PlayerOne->Name = L"tbl1PlayerOne";
 			this->tbl1PlayerOne->RowCount = 3;
 			this->tbl1PlayerOne->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 40)));
@@ -673,108 +679,120 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label1->Location = System::Drawing::Point(176, 10);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(176, 40);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(20, 22);
+			this->label1->Size = System::Drawing::Size(21, 22);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"1";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label2->Location = System::Drawing::Point(237, 10);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(237, 40);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(20, 22);
+			this->label2->Size = System::Drawing::Size(21, 22);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"2";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label3->Location = System::Drawing::Point(293, 10);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(293, 40);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(20, 22);
+			this->label3->Size = System::Drawing::Size(21, 22);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"3";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label4->Location = System::Drawing::Point(352, 10);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(352, 40);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(20, 22);
+			this->label4->Size = System::Drawing::Size(21, 22);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"4";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label5->Location = System::Drawing::Point(411, 10);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(411, 40);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(20, 22);
+			this->label5->Size = System::Drawing::Size(21, 22);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"5";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label6->Location = System::Drawing::Point(468, 10);
+			this->label6->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(468, 40);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(20, 22);
+			this->label6->Size = System::Drawing::Size(21, 22);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"6";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label7->Location = System::Drawing::Point(526, 10);
+			this->label7->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(526, 40);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(20, 22);
+			this->label7->Size = System::Drawing::Size(21, 22);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"7";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label8->Location = System::Drawing::Point(585, 10);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(585, 40);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(20, 22);
+			this->label8->Size = System::Drawing::Size(21, 22);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"8";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label9->Location = System::Drawing::Point(641, 10);
+			this->label9->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(641, 40);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(20, 22);
+			this->label9->Size = System::Drawing::Size(21, 22);
 			this->label9->TabIndex = 8;
 			this->label9->Text = L"9";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
-			this->label10->Location = System::Drawing::Point(683, 10);
+			this->label10->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(683, 40);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(52, 22);
+			this->label10->Size = System::Drawing::Size(55, 22);
 			this->label10->TabIndex = 9;
 			this->label10->Text = L"Front";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(17, 193);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(26, 147);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(116, 50);
 			this->button1->TabIndex = 10;
 			this->button1->Text = L"Save Round";
 			this->button1->UseVisualStyleBackColor = true;
@@ -782,9 +800,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(17, 222);
+			this->button2->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(26, 214);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(116, 50);
 			this->button2->TabIndex = 11;
 			this->button2->Text = L"Clear";
 			this->button2->UseVisualStyleBackColor = true;
@@ -792,9 +812,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(17, 255);
+			this->button3->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Location = System::Drawing::Point(26, 284);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(116, 50);
 			this->button3->TabIndex = 12;
 			this->button3->Text = L"Return";
 			this->button3->UseVisualStyleBackColor = true;
@@ -803,100 +825,110 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label11->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label11->Location = System::Drawing::Point(683, 193);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(50, 22);
+			this->label11->Size = System::Drawing::Size(49, 22);
 			this->label11->TabIndex = 23;
 			this->label11->Text = L"Back";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label12->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label12->Location = System::Drawing::Point(641, 193);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(30, 22);
+			this->label12->Size = System::Drawing::Size(32, 22);
 			this->label12->TabIndex = 22;
 			this->label12->Text = L"18";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label13->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label13->Location = System::Drawing::Point(585, 193);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(30, 22);
+			this->label13->Size = System::Drawing::Size(32, 22);
 			this->label13->TabIndex = 21;
 			this->label13->Text = L"17";
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label14->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label14->Location = System::Drawing::Point(526, 193);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(30, 22);
+			this->label14->Size = System::Drawing::Size(32, 22);
 			this->label14->TabIndex = 20;
 			this->label14->Text = L"16";
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label15->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label15->Location = System::Drawing::Point(468, 193);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(30, 22);
+			this->label15->Size = System::Drawing::Size(32, 22);
 			this->label15->TabIndex = 19;
 			this->label15->Text = L"15";
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label16->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label16->Location = System::Drawing::Point(411, 193);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(30, 22);
+			this->label16->Size = System::Drawing::Size(32, 22);
 			this->label16->TabIndex = 18;
 			this->label16->Text = L"14";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label17->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label17->Location = System::Drawing::Point(352, 193);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(30, 22);
+			this->label17->Size = System::Drawing::Size(32, 22);
 			this->label17->TabIndex = 17;
 			this->label17->Text = L"13";
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label18->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label18->Location = System::Drawing::Point(293, 193);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(30, 22);
+			this->label18->Size = System::Drawing::Size(32, 22);
 			this->label18->TabIndex = 16;
 			this->label18->Text = L"12";
 			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label19->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label19->Location = System::Drawing::Point(237, 193);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(30, 22);
+			this->label19->Size = System::Drawing::Size(32, 22);
 			this->label19->TabIndex = 15;
 			this->label19->Text = L"11";
 			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13));
+			this->label20->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label20->Location = System::Drawing::Point(176, 193);
 			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(30, 22);
+			this->label20->Size = System::Drawing::Size(32, 22);
 			this->label20->TabIndex = 13;
 			this->label20->Text = L"10";
 			// 
@@ -905,6 +937,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tableLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->tableLayoutPanel1->BackColor = System::Drawing::Color::ForestGreen;
 			this->tableLayoutPanel1->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::InsetDouble;
 			this->tableLayoutPanel1->ColumnCount = 10;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
@@ -926,7 +959,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				55)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				175)));
+				178)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
 				20)));
 			this->tableLayoutPanel1->Controls->Add(this->txtBoxHole18, 8, 0);
@@ -957,6 +990,8 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->tableLayoutPanel1->Controls->Add(this->btnAdd18, 8, 1);
 			this->tableLayoutPanel1->Controls->Add(this->btnSub18, 8, 2);
 			this->tableLayoutPanel1->Controls->Add(this->txtBoxBackTotal, 9, 0);
+			this->tableLayoutPanel1->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tableLayoutPanel1->GrowStyle = System::Windows::Forms::TableLayoutPanelGrowStyle::FixedSize;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(158, 218);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
@@ -1289,11 +1324,13 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			// txtBoxFullRound
 			// 
-			this->txtBoxFullRound->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
-			this->txtBoxFullRound->Location = System::Drawing::Point(12, 61);
+			this->txtBoxFullRound->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtBoxFullRound->Location = System::Drawing::Point(44, 81);
 			this->txtBoxFullRound->Multiline = true;
 			this->txtBoxFullRound->Name = L"txtBoxFullRound";
-			this->txtBoxFullRound->Size = System::Drawing::Size(75, 46);
+			this->txtBoxFullRound->ReadOnly = true;
+			this->txtBoxFullRound->Size = System::Drawing::Size(75, 32);
 			this->txtBoxFullRound->TabIndex = 24;
 			this->txtBoxFullRound->Text = L"0";
 			this->txtBoxFullRound->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -1301,15 +1338,17 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 17));
-			this->label21->Location = System::Drawing::Point(12, 29);
+			this->label21->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label21->Location = System::Drawing::Point(59, 56);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(68, 29);
+			this->label21->Size = System::Drawing::Size(49, 22);
 			this->label21->TabIndex = 25;
 			this->label21->Text = L"Total";
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::ForestGreen;
 			this->panel1->Controls->Add(this->pnlBtnCancel);
 			this->panel1->Controls->Add(this->pnlCancelSave);
 			this->panel1->Controls->Add(this->label25);
@@ -1329,9 +1368,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			// pnlBtnCancel
 			// 
+			this->pnlBtnCancel->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pnlBtnCancel->Location = System::Drawing::Point(431, 300);
 			this->pnlBtnCancel->Name = L"pnlBtnCancel";
-			this->pnlBtnCancel->Size = System::Drawing::Size(75, 23);
+			this->pnlBtnCancel->Size = System::Drawing::Size(75, 34);
 			this->pnlBtnCancel->TabIndex = 9;
 			this->pnlBtnCancel->Text = L"Cancel";
 			this->pnlBtnCancel->UseVisualStyleBackColor = true;
@@ -1339,9 +1380,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			// pnlCancelSave
 			// 
+			this->pnlCancelSave->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pnlCancelSave->Location = System::Drawing::Point(307, 300);
 			this->pnlCancelSave->Name = L"pnlCancelSave";
-			this->pnlCancelSave->Size = System::Drawing::Size(75, 23);
+			this->pnlCancelSave->Size = System::Drawing::Size(75, 34);
 			this->pnlCancelSave->TabIndex = 8;
 			this->pnlCancelSave->Text = L"Save";
 			this->pnlCancelSave->UseVisualStyleBackColor = true;
@@ -1350,10 +1393,10 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label25->Font = (gcnew System::Drawing::Font(L"Cambria", 18));
 			this->label25->Location = System::Drawing::Point(292, 235);
 			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(59, 26);
+			this->label25->Size = System::Drawing::Size(64, 28);
 			this->label25->TabIndex = 7;
 			this->label25->Text = L"Total";
 			this->label25->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1361,10 +1404,10 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label24
 			// 
 			this->label24->AutoSize = true;
-			this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label24->Font = (gcnew System::Drawing::Font(L"Cambria", 18));
 			this->label24->Location = System::Drawing::Point(257, 176);
 			this->label24->Name = L"label24";
-			this->label24->Size = System::Drawing::Size(124, 26);
+			this->label24->Size = System::Drawing::Size(126, 28);
 			this->label24->TabIndex = 6;
 			this->label24->Text = L"Back Score";
 			this->label24->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1372,17 +1415,20 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label23
 			// 
 			this->label23->AutoSize = true;
-			this->label23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label23->Font = (gcnew System::Drawing::Font(L"Cambria", 18));
 			this->label23->Location = System::Drawing::Point(257, 117);
 			this->label23->Name = L"label23";
-			this->label23->Size = System::Drawing::Size(125, 26);
+			this->label23->Size = System::Drawing::Size(132, 28);
 			this->label23->TabIndex = 5;
 			this->label23->Text = L"Front Score";
 			this->label23->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// txtPnlSavedRound
 			// 
+			this->txtPnlSavedRound->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtPnlSavedRound->Location = System::Drawing::Point(324, 55);
+			this->txtPnlSavedRound->MaxLength = 15;
 			this->txtPnlSavedRound->Multiline = true;
 			this->txtPnlSavedRound->Name = L"txtPnlSavedRound";
 			this->txtPnlSavedRound->Size = System::Drawing::Size(168, 27);
@@ -1391,10 +1437,10 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+			this->label22->Font = (gcnew System::Drawing::Font(L"Cambria", 18));
 			this->label22->Location = System::Drawing::Point(307, 12);
 			this->label22->Name = L"label22";
-			this->label22->Size = System::Drawing::Size(194, 26);
+			this->label22->Size = System::Drawing::Size(197, 28);
 			this->label22->TabIndex = 3;
 			this->label22->Text = L"Name Your Round";
 			this->label22->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -1402,6 +1448,8 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// pnlFrontScore
 			// 
 			this->pnlFrontScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlFrontScore->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pnlFrontScore->Location = System::Drawing::Point(427, 117);
 			this->pnlFrontScore->Multiline = true;
 			this->pnlFrontScore->Name = L"pnlFrontScore";
@@ -1412,6 +1460,8 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// pnlTotalScore
 			// 
 			this->pnlTotalScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlTotalScore->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pnlTotalScore->Location = System::Drawing::Point(427, 235);
 			this->pnlTotalScore->Multiline = true;
 			this->pnlTotalScore->Name = L"pnlTotalScore";
@@ -1422,6 +1472,8 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// pnlBackScore
 			// 
 			this->pnlBackScore->AccessibleRole = System::Windows::Forms::AccessibleRole::TitleBar;
+			this->pnlBackScore->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->pnlBackScore->Location = System::Drawing::Point(427, 174);
 			this->pnlBackScore->Multiline = true;
 			this->pnlBackScore->Name = L"pnlBackScore";
@@ -1433,6 +1485,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->ClientSize = System::Drawing::Size(776, 389);
 			this->ControlBox = false;
 			this->Controls->Add(this->panel1);
@@ -1463,6 +1516,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->tbl1PlayerOne);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"onePlayer";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"onePlayer";
@@ -1502,7 +1556,12 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 		  //FUNCTION TO ADD TEXTBOX
 
-		  System::Windows::Forms::TextBox^ conversionAdd(System::Windows::Forms::TextBox^ txtBox) {
+		  System::Windows::Forms::TextBox^ conversionAdd(System::Windows::Forms::TextBox^ txtBox)
+		  {
+			  /*
+			  Takes current textbox as parameter, converts the textbox to int, adds 1 to value
+			  converts back to string and returns textbox value to initial textbox
+			  */
 			  int hole;
 			  hole = int::Parse(txtBox->Text);
 			  hole = hole + 1;
@@ -1512,7 +1571,12 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 		  }
 
 		  //FUNCTION TO SUBTRACT TEXTBOX
-		  System::Windows::Forms::TextBox^ conversionSub(System::Windows::Forms::TextBox^ txtBox) {
+		  System::Windows::Forms::TextBox^ conversionSub(System::Windows::Forms::TextBox^ txtBox)
+		  {
+			  /*
+			  Takes current textbox as parameter, converts the textbox to int, subtracts 1 to value
+			  converts back to string and returns textbox value to initial textbox
+			  */
 			  int hole;
 			  hole = int::Parse(txtBox->Text);
 			  hole = hole - 1;
@@ -1523,6 +1587,10 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 		  //FRONT SCORE CHANGE
 		  void totalChange() {
+			  /*
+			  Adds each textBox to the totalRound textBox
+			  */
+
 			  int total;
 			  total = int::Parse(txtBoxHole1->Text) + int::Parse(txtBoxHole2->Text) +
 				  int::Parse(txtBoxHole3->Text) + int::Parse(txtBoxHole4->Text) + int::Parse(txtBoxHole5->Text)
@@ -1537,6 +1605,9 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 		  //BACK SCORE CHANGE
 		  void totalChangeBack() {
+			  /*
+			  Adds each textbox on the back 9 to the back9TextBox
+			  */
 			  int total;
 			  total = int::Parse(txtBoxHole10->Text) + int::Parse(txtBoxHole11->Text) +
 				  int::Parse(txtBoxHole12->Text) + int::Parse(txtBoxHole13->Text) + int::Parse(txtBoxHole14->Text)
@@ -1551,11 +1622,11 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 
 
-		  //TOTAL CHANGE (NEED TO FIX THIS, THIS IS INEFFECIENT AND CAUSING TOO MUCH MEMORY) TODO
+		  //TOTAL CHANGE 
 		  void fullRound() {
-
-
-
+			  /*
+			  Adds every textbox to the full round text
+			  */
 			  int total;
 
 			  total = int::Parse(txtBoxHole1->Text) + int::Parse(txtBoxHole2->Text) +
@@ -1573,9 +1644,14 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 
 
+	/*
+	These are the buttons for every hole. Each hole has two, addition and subtraction.
+	Addition calls on conversionAdd function
+	Subtraction calls on conversionSub function
+	Those functions then update the textbox's
+	*/
 
 	private: System::Void btnAdd1_Click(System::Object^ sender, System::EventArgs^ e) {
-
 		txtBoxHole1 = conversionAdd(txtBoxHole1);
 		totalChange();
 	}
@@ -1650,9 +1726,7 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 	private: System::Void btnSub0_Click(System::Object^ sender, System::EventArgs^ e) {
 		txtBoxHole9 = conversionSub(txtBoxHole9);
 		totalChange();
-
 	}
-
 	private: System::Void btnAdd10_Click(System::Object^ sender, System::EventArgs^ e) {
 		txtBoxHole10 = conversionAdd(txtBoxHole10);
 		totalChangeBack();
@@ -1729,20 +1803,13 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-		//user->setScore(int::Parse(txtBoxFullRound->Text));
-		//user->setScore(int::Parse(txtBoxFullRound->Text));
-
 		user.setScore(int::Parse(txtBoxFullRound->Text));
-
-		//saveRound = true;
-
 		panel1->Show();
 
 	}
 
 
-
+	//Clear Button
 	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) { //User resets onePlayerForm
 		//Every text box is set to 0
 		txtBoxFrontTot->Text = "0";
@@ -1767,10 +1834,8 @@ private: System::Windows::Forms::Button^ pnlCancelSave;
 		txtBoxHole16->Text = "0";
 		txtBoxHole17->Text = "0";
 		txtBoxHole18->Text = "0";
-
-
-
 	}
+
 private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) { //User wants to return to setupForm
 	returnToSetUp = true;//set to true
 	this->Close(); //closes onePlayerForm

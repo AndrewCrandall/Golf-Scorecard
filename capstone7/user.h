@@ -1,3 +1,9 @@
+/*
+Andrew Crandall
+7/22/2022
+Title: User 
+*/
+
 #pragma once
 
 using namespace System;
@@ -24,7 +30,7 @@ public:
 	int getScore();
 
 
-
+	//private members
 private:
 	int id;
 	int score;

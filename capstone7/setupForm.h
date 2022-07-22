@@ -1,6 +1,12 @@
+/*
+Andrew Crandall
+7/22/2022
+Title: Setup Form
+Summary: Form displayed to user to allow for user to either create new round, load previous saved
+		 rounds, get help, or close application
+*/
+
 #pragma once
-
-
 
 namespace capstone7 {
 
@@ -21,10 +27,6 @@ namespace capstone7 {
 		{
 			InitializeComponent();
 			pnlHelp->Hide(); //Hides Help Panel 
-			pnlLogOut->Hide(); //Hides Logout Panel
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -51,11 +53,11 @@ namespace capstone7 {
 	private: System::Windows::Forms::Button^ btnLogOut;
 	private: System::Windows::Forms::Button^ pnlBtnOk;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Panel^ pnlLogOut;
 
-	private: System::Windows::Forms::Button^ pnlBtnReturn;
-	private: System::Windows::Forms::Button^ pnlBtnExit;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
+
+
+
 
 	private:
 		/// <summary>
@@ -78,51 +80,66 @@ namespace capstone7 {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->btnLogOut = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pnlLogOut = (gcnew System::Windows::Forms::Panel());
-			this->pnlBtnReturn = (gcnew System::Windows::Forms::Button());
-			this->pnlBtnExit = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->pnlHelp->SuspendLayout();
-			this->pnlLogOut->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// btnOnePlyr
 			// 
-			this->btnOnePlyr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
-			this->btnOnePlyr->Location = System::Drawing::Point(109, 119);
+			this->btnOnePlyr->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->btnOnePlyr->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btnOnePlyr->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnOnePlyr->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnOnePlyr->ForeColor = System::Drawing::Color::Black;
+			this->btnOnePlyr->Location = System::Drawing::Point(95, 101);
 			this->btnOnePlyr->Name = L"btnOnePlyr";
-			this->btnOnePlyr->Size = System::Drawing::Size(159, 69);
+			this->btnOnePlyr->Padding = System::Windows::Forms::Padding(3);
+			this->btnOnePlyr->Size = System::Drawing::Size(210, 70);
 			this->btnOnePlyr->TabIndex = 4;
 			this->btnOnePlyr->Text = L"Start New Round";
-			this->btnOnePlyr->UseVisualStyleBackColor = true;
+			this->btnOnePlyr->UseVisualStyleBackColor = false;
 			this->btnOnePlyr->Click += gcnew System::EventHandler(this, &setupForm::btnOnePlyr_Click);
 			// 
 			// btnLoad
 			// 
-			this->btnLoad->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14));
-			this->btnLoad->Location = System::Drawing::Point(109, 194);
+			this->btnLoad->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->btnLoad->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btnLoad->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnLoad->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnLoad->ForeColor = System::Drawing::Color::Black;
+			this->btnLoad->Location = System::Drawing::Point(95, 211);
 			this->btnLoad->Name = L"btnLoad";
-			this->btnLoad->Size = System::Drawing::Size(159, 54);
+			this->btnLoad->Padding = System::Windows::Forms::Padding(3);
+			this->btnLoad->Size = System::Drawing::Size(210, 70);
 			this->btnLoad->TabIndex = 5;
 			this->btnLoad->Text = L"Load Round";
-			this->btnLoad->UseVisualStyleBackColor = true;
+			this->btnLoad->UseVisualStyleBackColor = false;
 			this->btnLoad->Click += gcnew System::EventHandler(this, &setupForm::btnTwoPlyr_Click);
 			// 
 			// btnHelp
 			// 
-			this->btnHelp->Location = System::Drawing::Point(314, 336);
+			this->btnHelp->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->btnHelp->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btnHelp->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnHelp->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnHelp->ForeColor = System::Drawing::Color::Black;
+			this->btnHelp->Location = System::Drawing::Point(95, 320);
 			this->btnHelp->Name = L"btnHelp";
-			this->btnHelp->Size = System::Drawing::Size(75, 23);
+			this->btnHelp->Padding = System::Windows::Forms::Padding(3);
+			this->btnHelp->Size = System::Drawing::Size(102, 42);
 			this->btnHelp->TabIndex = 8;
 			this->btnHelp->Text = L"HELP";
-			this->btnHelp->UseVisualStyleBackColor = true;
+			this->btnHelp->UseVisualStyleBackColor = false;
 			this->btnHelp->Click += gcnew System::EventHandler(this, &setupForm::btnHelp_Click);
 			// 
 			// pnlHelp
 			// 
+			this->pnlHelp->BackColor = System::Drawing::Color::ForestGreen;
 			this->pnlHelp->Controls->Add(this->pnlBtnOk);
 			this->pnlHelp->Controls->Add(this->textBox2);
-			this->pnlHelp->Location = System::Drawing::Point(83, 106);
+			this->pnlHelp->Location = System::Drawing::Point(95, 101);
 			this->pnlHelp->MaximumSize = System::Drawing::Size(230, 173);
 			this->pnlHelp->MinimumSize = System::Drawing::Size(230, 173);
 			this->pnlHelp->Name = L"pnlHelp";
@@ -142,9 +159,9 @@ namespace capstone7 {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Cambria", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(27, 9);
+			this->textBox2->Location = System::Drawing::Point(26, 9);
 			this->textBox2->MaximumSize = System::Drawing::Size(170, 111);
 			this->textBox2->MinimumSize = System::Drawing::Size(170, 111);
 			this->textBox2->Multiline = true;
@@ -152,81 +169,49 @@ namespace capstone7 {
 			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(170, 111);
 			this->textBox2->TabIndex = 0;
-			this->textBox2->Text = L"Choose the number of players! \r\nDepending on the number of players you have,\r\nthe"
-				L" interface will slightly change! \r\nOne - Two Players allow for 18 holes\r\nThree -"
-				L"Four only allow for 9 holes";
+			this->textBox2->Text = L"\r\nStart a new rounds to capture your score!\r\n\r\nHit the load round button to see a"
+				L"ll previous rounds\r\n\r\n";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// btnLogOut
 			// 
-			this->btnLogOut->Location = System::Drawing::Point(314, 379);
+			this->btnLogOut->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->btnLogOut->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btnLogOut->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnLogOut->DialogResult = System::Windows::Forms::DialogResult::Cancel;
+			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnLogOut->ForeColor = System::Drawing::Color::Black;
+			this->btnLogOut->Location = System::Drawing::Point(203, 320);
 			this->btnLogOut->Name = L"btnLogOut";
-			this->btnLogOut->Size = System::Drawing::Size(75, 23);
+			this->btnLogOut->Padding = System::Windows::Forms::Padding(3);
+			this->btnLogOut->Size = System::Drawing::Size(102, 42);
 			this->btnLogOut->TabIndex = 10;
 			this->btnLogOut->Text = L"Logout";
-			this->btnLogOut->UseVisualStyleBackColor = true;
-			this->btnLogOut->Click += gcnew System::EventHandler(this, &setupForm::btnLogOut_Click);
+			this->btnLogOut->UseVisualStyleBackColor = false;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19));
-			this->label1->Location = System::Drawing::Point(12, 46);
+			this->label1->BackColor = System::Drawing::Color::ForestGreen;
+			this->label1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Cambria", 24));
+			this->label1->ForeColor = System::Drawing::Color::WhiteSmoke;
+			this->label1->Location = System::Drawing::Point(128, 27);
+			this->label1->Margin = System::Windows::Forms::Padding(3);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(370, 30);
+			this->label1->Padding = System::Windows::Forms::Padding(3);
+			this->label1->Size = System::Drawing::Size(146, 45);
 			this->label1->TabIndex = 11;
-			this->label1->Text = L"Choose the Number of Players!";
-			// 
-			// pnlLogOut
-			// 
-			this->pnlLogOut->Controls->Add(this->pnlBtnReturn);
-			this->pnlLogOut->Controls->Add(this->pnlBtnExit);
-			this->pnlLogOut->Controls->Add(this->textBox1);
-			this->pnlLogOut->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pnlLogOut->Location = System::Drawing::Point(0, 0);
-			this->pnlLogOut->Name = L"pnlLogOut";
-			this->pnlLogOut->Size = System::Drawing::Size(401, 441);
-			this->pnlLogOut->TabIndex = 2;
-			this->pnlLogOut->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &setupForm::pnlLogOut_Paint);
-			// 
-			// pnlBtnReturn
-			// 
-			this->pnlBtnReturn->Location = System::Drawing::Point(198, 182);
-			this->pnlBtnReturn->Name = L"pnlBtnReturn";
-			this->pnlBtnReturn->Size = System::Drawing::Size(112, 47);
-			this->pnlBtnReturn->TabIndex = 2;
-			this->pnlBtnReturn->Text = L"RETURN";
-			this->pnlBtnReturn->UseVisualStyleBackColor = true;
-			this->pnlBtnReturn->Click += gcnew System::EventHandler(this, &setupForm::pnlBtnReturn_Click);
-			// 
-			// pnlBtnExit
-			// 
-			this->pnlBtnExit->Location = System::Drawing::Point(68, 182);
-			this->pnlBtnExit->Name = L"pnlBtnExit";
-			this->pnlBtnExit->Size = System::Drawing::Size(112, 47);
-			this->pnlBtnExit->TabIndex = 1;
-			this->pnlBtnExit->Text = L"OK";
-			this->pnlBtnExit->UseVisualStyleBackColor = true;
-			this->pnlBtnExit->Click += gcnew System::EventHandler(this, &setupForm::pnlBtnExit_Click);
-			// 
-			// textBox1
-			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->textBox1->Location = System::Drawing::Point(68, 43);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(232, 68);
-			this->textBox1->TabIndex = 0;
-			this->textBox1->Text = L"Are you sure you want to log out\?";
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->label1->Text = L"18 Holes";
+			
 			// 
 			// setupForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::DimGray;
 			this->ClientSize = System::Drawing::Size(401, 441);
-			this->Controls->Add(this->pnlLogOut);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnLogOut);
 			this->Controls->Add(this->pnlHelp);
@@ -242,20 +227,18 @@ namespace capstone7 {
 			this->Load += gcnew System::EventHandler(this, &setupForm::setupForm_Load);
 			this->pnlHelp->ResumeLayout(false);
 			this->pnlHelp->PerformLayout();
-			this->pnlLogOut->ResumeLayout(false);
-			this->pnlLogOut->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-	//Private
+	//Private data members used in main to determine what user wants to do
 	private: bool onePlayerSetting = false;
 	private: bool loadRoundSetting = false;
 	private: bool logoutApplication = false;
 
-	//Public
+	//Public functions for main
 	public: bool getOnePlayer();
 	public: bool getLoadRound();
 	public: bool getLogout();
@@ -264,29 +247,25 @@ namespace capstone7 {
 	}
 	private: System::Void btnOnePlyr_Click(System::Object^ sender, System::EventArgs^ e) {
 		onePlayerSetting = true; //User choose one Player
-		this->Close();
+		this->Close(); //closes this form
 	}
 	private: System::Void btnHelp_Click(System::Object^ sender, System::EventArgs^ e) { //Open Panel
 		pnlHelp->Show(); // opens panel
 	}
-	private: System::Void btnLogOut_Click(System::Object^ sender, System::EventArgs^ e) { //Close application
-		pnlLogOut->Show();
-	}
+
 	private: System::Void pnlBtnOk_Click(System::Object^ sender, System::EventArgs^ e) { //Button for Help Panel
 		pnlHelp->Hide(); //Hides Panel
 	}
 	private: System::Void pnlBtnExit_Click(System::Object^ sender, System::EventArgs^ e) {
-		logoutApplication = true;
-		this->Close();
+		logoutApplication = true; //user wants to logout, 
 	}
-	private: System::Void pnlBtnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlLogOut->Hide(); //Brings user back to choose player interface
-	}
+
 	private: System::Void pnlLogOut_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void btnTwoPlyr_Click(System::Object^ sender, System::EventArgs^ e) {
-		loadRoundSetting = true;
-		this->Close();
+		loadRoundSetting = true; //user wants to load previous rounds
+		this->Close(); //closes this current form
 	}
+
 };
 }

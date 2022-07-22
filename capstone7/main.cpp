@@ -1,3 +1,11 @@
+/*
+Andrew Crandall
+07/12/2022
+Capstone Project
+Title: Golf Scorecard App
+Main File
+*/
+
 #include "loginForm.h"
 #include "registerForm.h"
 #include "setupForm.h"
@@ -11,15 +19,13 @@ using namespace System::Data::SqlClient;
 using namespace System::IO;
 
 
-bool saveRoundsToTable(int id, int score, String^ name);
-bool readRounds(int tmpId);
+bool saveRoundsToTable(int id, int score, String^ name); //Saves rounds to table "Rounds"
+bool readRounds(int tmpId); //Reads the saved rounds from "Rounds"
 
 int main() {
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-
-
 
 	//user object
 	User user;
@@ -74,11 +80,7 @@ int main() {
 		capstone7::setupForm setupForm;
 		setupForm.ShowDialog();
 
-		if (setupForm.getLogout() == true) { //User has logged out of Application
-			break; //Leave loop
-		}
-
-		else if (setupForm.getOnePlayer() == true) {
+		if (setupForm.getOnePlayer() == true) {
 			//Closes setupForm
 			//User wants to go to OnePlayerForm
 			setupForm.Close();
@@ -119,24 +121,27 @@ int main() {
 		}//END OF OnePlayer Decisions
 
 
-		else if (setupForm.getLoadRound() == true) {
+		//else if (setupForm.getLogout() == true) { //User has logged out of Application
+			//break; //Leave loop
+		//}
 
-			if(readRounds(user.getId()) == true);
-			capstone7::loadForm loadForm;
+		else if (setupForm.getLoadRound() == true) { //User wants to load all saved rounds
+
+			if (readRounds(user.getId()) == true); // user has saved rounds
+			capstone7::loadForm loadForm; // create loadForm form
 			setupForm.Close();
-			loadForm.ShowDialog();
+			loadForm.ShowDialog(); //Display to user, so user is able to then view all saved rounds
 
-		
+
 
 		}
-
 
 		else  //fallback on any error
 			break;
 	}
 	
 	
-return 0;
+return 0; //end of main
 }
 
 
@@ -144,27 +149,31 @@ return 0;
 
 
 
-bool saveRoundsToTable(int id, int score, String^ name)
+bool saveRoundsToTable(int id, int score, String^ name) //saves rounds
 {
 	try {
+
+		//string connString is what is used to connect to database
 		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=GolfScorecard;Integrated Security=True";
 
+		//tmp data is stored in following values
 		int tmpId = id;
 		int tmpScore = score;
 		String^ tmpName = name;
 
+		//connects to database, opens the connection
 		SqlConnection sqlConn(connString);
 		sqlConn.Open(); //Opens server
 
-
-
-
+		//inserts user Id, Score, and Rounds name into the database
 		String^ sqlQuery2 = "INSERT INTO Rounds " + "(Id, Score, Round) VALUES " + "(@Id, @Score, @Round)";
 		SqlCommand command(sqlQuery2, % sqlConn);
+
 
 		command.Parameters->AddWithValue("@Id", tmpId);//CONVERSION
 		command.Parameters->AddWithValue("@Score", tmpScore);//CONVERSION
 		command.Parameters->AddWithValue("@Round", tmpName);//CONVERSION
+		//Ececution
 		command.ExecuteNonQuery();
 
 		MessageBox::Show("Save Successful ", "Error ", MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -174,6 +183,7 @@ bool saveRoundsToTable(int id, int score, String^ name)
 	}
 
 	catch (Exception^ ex) {
+		//failure to actually save round
 		MessageBox::Show("Failed to save round ", "Error ", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		return false;
 	}
@@ -181,24 +191,24 @@ bool saveRoundsToTable(int id, int score, String^ name)
 
 
 
-
-
-
-
-bool readRounds(int tmpId) {
+bool readRounds(int tmpId) { //user wants to view all saved rounds
 	try {
+		//string to connect to database
 		String^ connString = "Data Source=localhost\\sqlexpress;Initial Catalog=GolfScorecard;Integrated Security=True";
 
+		//connects to database and opens connection
 		SqlConnection sqlConn(connString);
 		sqlConn.Open(); //Opens server
 		
+		//where current user logged in id is equal to all saved id, display all saved rounds
 		String^ sqlQuery3 = "SELECT * FROM Rounds WHERE Id = @Id ";
-
 
 		SqlCommand command(sqlQuery3, % sqlConn);
 
+		//change the @id value to the true Id
 		command.Parameters->AddWithValue("@Id", tmpId);
 
+		//read from the database
 		SqlDataReader^ reader = command.ExecuteReader();
 
 		String^ filename = "data.txt";
@@ -206,6 +216,9 @@ bool readRounds(int tmpId) {
 		StreamWriter^ sw = gcnew StreamWriter(filename);
 
 		while (reader->Read()) {
+
+			//as long as there is data in the table, keep reading the scores and inputting it into the data.txt file
+			// ending each row formatted as Id, Score, Name, new line
 			//	user = gcnew User;
 
 			int tmpId2;
@@ -216,11 +229,10 @@ bool readRounds(int tmpId) {
 			tmpScore = reader->GetInt32(1);
 			tmpRound = reader->GetString(2);
 			
-			sw->Write(tmpId2 + " ");
 			sw->Write(tmpScore + " ");
 			sw->WriteLine(tmpRound);
 		}
-		sw->Close();
+		sw->Close(); //close the writefile object
 
 		return true;
 

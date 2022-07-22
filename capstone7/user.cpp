@@ -1,3 +1,12 @@
+/*
+Andrew Crandall
+7/22/2022
+Title: user 
+Summary: User data 
+*/
+
+
+
 #include "user.h"
 
 
@@ -59,3 +68,4 @@ int User::getScore()
 {
 	return score;
 }
+
